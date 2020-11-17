@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chat instantané - Mercure Symfony{% endblock %}
+
+{% block body %}
+
+<section class="chat-container">
+    <div class="user-infos">
+        <h2>Messagerie instantanée avec Mercure</h2>
+        <h3><span>Bonjour,</span> {{ user.username }}</h3>
+        <a href="{{ path('app_logout') }}">Déconnexion</a>
+    </div>
+    <div class="messages-list">
+    </div>
+    <div class="reply">
+        <form action="http://mercure/.well-known/mercure" method="POST">
+            <input type="text" name="message" id="message">
+            <button type="submit">Envoyer</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
